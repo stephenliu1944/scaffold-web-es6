@@ -1,0 +1,69 @@
+{
+  "name": "react-base",
+  "version": "4.1.3",
+  "description": "",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "webpack --colors --display-error-details",
+    "start": "set INLINE=true && set DEV=true && webpack-dev-server --colors",
+    "start:mock": "node ./mock-server/server.js",
+    "eslint": "eslint --ext js --ext jsx src || exit 0",
+    "release:dev": "webpack --config webpack.config.prod.js --colors --display-error-details & gulp release_dev",
+    "release:test": "webpack --config webpack.config.prod.js --colors --display-error-details & gulp release_test",
+    "release:all": "webpack --config webpack.config.prod.js --colors --display-error-details & gulp"
+  },
+  "author": "stephen",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "classnames": "^2.2.5",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-antd": "^0.5.1",
+    "babel-plugin-import": "^1.1.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.15",
+    "css-loader": "^0.26.1",
+    "del": "^2.2.2",
+    "eslint": "^3.15.0",
+    "eslint-plugin-react": "^6.9.0",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "gulp": "^3.9.1",
+    "gulp-batch-replace": "0.0.0",
+    "gulp-sftp": "^0.1.5",
+    "gulp-zip": "^4.0.0",
+    "html-webpack-plugin": "^2.28.0",
+    "mockjs": "^1.0.1-beta3",
+    "node-sass": "^4.5.0",
+    "postcss-loader": "^1.2.2",
+    "precss": "^1.4.0",
+    "react-hot-loader": "^1.3.1",
+    "sass-loader": "^5.0.1",
+    "style-loader": "^0.13.1",
+    "uglifyjs-webpack-plugin": "^0.2.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "config": {
+    "server": {
+      "host": "localhost",
+      "port": 8080
+    }
+  }
+}
