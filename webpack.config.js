@@ -7,9 +7,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const env = process.env;
+const HOST = env.HOST || env.npm_package_config_server_host;
+const PORT = env.POST || env.npm_package_config_server_port;
 const DEV_ENV = env.DEV || false;
 const MOCK_ENV = env.MOCK || false;
 const STATIC_PATH = 'static';
+const extractAntD = new ExtractTextPlugin(`${STATIC_PATH}/css/antd.css`);
 const extractStyle = new ExtractTextPlugin(`${STATIC_PATH}/css/style.css`);
 
 const config = {
@@ -30,6 +33,10 @@ const config = {
             test: /\.(js|jsx)$/,
             include: path.join(__dirname, 'src'),
             use: ['babel-loader']
+        }, {    // antd的css加载处理
+            test: /\.css$/,
+            include: path.join(__dirname, 'node_modules/antd'),
+            use: extractAntD.extract(['css-loader'])
         }, {    //项目scss加载处理
             test: /\.scss$/,
             include: path.join(__dirname, 'src'),
@@ -50,6 +57,7 @@ const config = {
         }]
     },
     plugins: [
+        extractAntD,
         extractStyle,
         new webpack.NoEmitOnErrorsPlugin(),             // 出错不终止插件
         new CleanWebpackPlugin(['build']),              // 清除编译目录
@@ -74,6 +82,8 @@ const config = {
     devtool: '#cheap-module-eval-source-map',
     devServer: {
         contentBase: path.join(__dirname, "build"),
+        host: HOST,
+        port: PORT,
         inline: true,
         historyApiFallback: true    // using html5 router.
     }
