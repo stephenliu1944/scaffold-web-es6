@@ -72,8 +72,7 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
             hideLoading(response.config);
 
             if(isBlank(response.data)){
-                // TODO: 弹窗组件
-                //message.error('请求数据异常, 请稍后再试.');
+                message.error('请求数据异常, 请稍后再试.');
                 reject(response);
                 throw response;
             }else{
@@ -83,7 +82,9 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
                         responseData = JSON.parse(responseData);
                     }catch(e){
                         try{
+                            /* eslint-disable no-eval */
                             responseData = eval('(' + responseData + ')');
+                            /* eslint-enable no-eval */
                         }catch(e){
                             console.error(e);
                             return Promise.reject("response数据转换错误");
@@ -118,16 +119,15 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
             hideLoading(error.config);
 
             if (error.response) {
-                console.log('Error', error.response.data);
+                console.error(error.response.data);
                 reject(error.response);
                 throw error.response.data;
             } else {
-                console.log('Error', error.message);
+                console.error(error.message);
                 reject(error.message);
                 throw error.message;
             }
-            // TODO: 弹窗组件
-            //message.error('服务异常, 请稍后再试');
+            message.error('服务异常, 请稍后再试');
         });
     });
 
@@ -178,12 +178,12 @@ function handError(response) {
          * 500~ 服务相关
          */
         default:    // 未知错误
-            // TODO: 弹窗组件
-            //message.error(msg);
+            message.error(msg);
     }
 }
 
 function info(data, title) {
+    /* eslint-disable no-console */
     if (title) {
         console.log(title + " start");
     }
@@ -194,6 +194,7 @@ function info(data, title) {
     if (title) {
         console.log(title + " end");
     }
+    /* eslint-enable no-console */
 }
 
 Promise.prototype.done = function (onFulfilled, onRejected) {

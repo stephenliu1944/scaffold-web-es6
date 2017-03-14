@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const STATIC_PATH = 'static';
+const extractAntD = new ExtractTextPlugin(`${STATIC_PATH}/css/[contenthash].antd.css`);
 const extractStyle = new ExtractTextPlugin(`${STATIC_PATH}/css/[contenthash].style.css`);
 
 const config = {
@@ -25,8 +26,22 @@ const config = {
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
+            enforce: 'pre',
+            include: path.join(__dirname, 'src'),
+            use: [{
+                loader: 'eslint-loader',
+                options: {
+                    configFile: '.eslintrc.prod.json'
+                }
+            }]
+        }, {
+            test: /\.(js|jsx)$/,
             include: path.join(__dirname, 'src'),
             use: ['babel-loader']
+        }, {        // 独立加载antd的scss
+            test: /\.css$/,
+            include: path.join(__dirname, 'node_modules/antd/lib'),
+            use: extractAntD.extract(['css-loader'])
         }, {
             test: /\.scss$/,
             include: path.join(__dirname, 'src'),
@@ -47,6 +62,7 @@ const config = {
         }]
     },
     plugins: [
+        extractAntD,
         extractStyle,
         new CleanWebpackPlugin(['build']),      // 清除编译目录
         new webpack.optimize.UglifyJsPlugin(),

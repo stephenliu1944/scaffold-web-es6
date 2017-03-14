@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import { checkLogin } from './hook';
+import { checkLogin } from '../utils/hook';
 import Frame from '../layouts/frame/Frame';
 import Home from '../views/home/Home';
 import NotFound from '../views/error/notFound/NotFound';

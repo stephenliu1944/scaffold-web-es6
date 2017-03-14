@@ -9,7 +9,7 @@ export default class Frame extends Component {
         return (
             <div className="frame">
                 <Header />
-                <div className="container">
+                <div className="container clearfix">
                     {this.props.children}
                 </div>
                 <Footer />

@@ -7,11 +7,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const env = process.env;
-const HOST = env.HOST || env.npm_package_config_server_host;
-const PORT = env.POST || env.npm_package_config_server_port;
+const STATIC_PATH = 'static';
 const DEV_ENV = env.DEV || false;
 const MOCK_ENV = env.MOCK || false;
-const STATIC_PATH = 'static';
+const HOST = env.HOST || env.npm_package_config_server_host;
+const PORT = env.POST || env.npm_package_config_server_port;
 const extractAntD = new ExtractTextPlugin(`${STATIC_PATH}/css/antd.css`);
 const extractStyle = new ExtractTextPlugin(`${STATIC_PATH}/css/style.css`);
 
@@ -29,13 +29,23 @@ const config = {
         extensions: ['.js', '.jsx', '.css', '.scss']
     },
     module: {
-        rules: [{   // js加载处理
+        rules: [{
+            test: /\.(js|jsx)$/,
+            enforce: 'pre',
+            include: path.join(__dirname, 'src'),
+            use: [{
+                loader: 'eslint-loader',
+                options: {
+                    configFile: '.eslintrc.json'
+                }
+            }]
+        }, {        // js加载处理
             test: /\.(js|jsx)$/,
             include: path.join(__dirname, 'src'),
             use: ['babel-loader']
-        }, {    // antd的css加载处理
+        }, {        // 独立加载antd的css
             test: /\.css$/,
-            include: path.join(__dirname, 'node_modules/antd'),
+            include: path.join(__dirname, 'node_modules/antd/lib'),
             use: extractAntD.extract(['css-loader'])
         }, {    //项目scss加载处理
             test: /\.scss$/,
@@ -81,11 +91,11 @@ const config = {
     ],
     devtool: '#cheap-module-eval-source-map',
     devServer: {
-        contentBase: path.join(__dirname, "build"),
         host: HOST,
         port: PORT,
         inline: true,
-        historyApiFallback: true    // using html5 router.
+        historyApiFallback: true,    // using html5 router.
+        contentBase: path.join(__dirname, "build")
     }
 };
 

@@ -7,18 +7,18 @@ import sftp from 'gulp-sftp';                   // 文件上传到远程服务�
 
 const BUILD_PATH = 'build';						// 编译文件
 const DIST_PATH = 'dist';						// 目的地文件
-const FILENAME = '';							// 生成的文件夹和zip文件名
-const DEV_SERVER = "";			       			// DEV静态资源服务器
-const TEST_SERVER = "";			      			// TEST静态资源服务器
-const USER = "";					       		// 静态资源服务器用户名
-const PASSWORD = "";		       				// 静态资源服务器密码
-const DEV_RELEASE_PATH = "/usr/local/"; 	    // DEV静态资源存放到服务器的路径
-const TEST_RELEASE_PATH = "/usr/local/"; 	   	// TEST静态资源存放到服务器的路径
-const TIMEOUT = 60000;                      	// 请求服务器超时时间, 1分钟.
+const FILENAME = 'xxx-xxx-xx';
+const DEV_SERVER = "xxx.xxx.xxx.xxx";			// DEV静态资源服务器
+const TEST_SERVER = "xxx.xxx.xxx.xxx";			// TEST静态资源服务器
+const USER = "xxx";						       	// 静态资源服务器用户名
+const PASSWORD = "xxxxx";		       			// 静态资源服务器密码
+const DEV_RELEASE_PATH = "/usr/local/static"; 	// DEV静态资源存放到服务器的路径
+const TEST_RELEASE_PATH = "/usr/local/static"; 	// TEST静态资源存放到服务器的路径
+const TIMEOUT = 60000;                          // 请求服务器超时时间, 1分钟.
 
 // 清除dist目录
 gulp.task('clean', () => {
-    return del([`${DIST_PATH}`]);
+    return del(['dist']);
 });
 // 文件打包
 gulp.task('package', ['clean'], () => {
