@@ -60,8 +60,8 @@ export const LetterNumCNCheck = {
     message: '请输入英文字, 或数字或中文',
     pattern: /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[\w])*$/
 };
-//只能输入正整数
-export const  PositiveInteger={
+// 只能输入正整数
+export const PositiveInteger = {
     message: '只能输入整数',
     pattern: /^\d+$/
 };

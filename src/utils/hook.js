@@ -1,6 +1,6 @@
-import { CURRENT_USER } from "../constants/common";
-import { getSession } from "../utils/storage";
-import { isEmpty, getCookie } from "../utils/util";
+import { CURRENT_USER } from '../constants/common';
+import { getSession } from '../utils/storage';
+import { isEmpty, getCookie } from '../utils/util';
 
 /**
  * onEnter
@@ -19,7 +19,6 @@ export function checkLogin(nextState, replace, next) {
     }*/
     next();
 }
-
 
 /**
  * onLeave

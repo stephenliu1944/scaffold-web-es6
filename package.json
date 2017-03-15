@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "react基础架构",
     "scripts": {
-        "build": "webpack --colors --display-error-details",
+        "build": "webpack --config webpack.config.prod.js --colors --display-error-details",
         "start": "set INLINE=true && set DEV=true && webpack-dev-server --colors",
         "start:mock": "node ./mock-server/server.js",
         "eslint": "eslint -c .eslintrc.prod.json --ext .js,.jsx src/",

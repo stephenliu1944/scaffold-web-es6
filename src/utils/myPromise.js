@@ -1,13 +1,13 @@
-import qs from "qs";
-import axios from "axios";
+import qs from 'qs';
+import axios from 'axios';
 import emitter from './emitter';
-import { HttpMethod, MOCK_PATH } from "../constants/common";
-import { isString, isArray, isBlank, isEmpty, isNotEmpty } from "./util";
+import { HttpMethod, MOCK_PATH } from '../constants/common';
+import { isString, isArray, isBlank, isEmpty, isNotEmpty } from './util';
 import { API_PATH, Event } from '../constants/common';
 
 /**
  * @desc 使用axios第三方库访问后台服务器, 返回封装过后的Promise对象.
- * @param {string} url 请求的接口地址, 格式: "/xxx..."
+ * @param {string} url 请求的接口地址, 格式: '/xxx...'
  * @param {string} domain 跨域请求的域名地址, 如: www.baidu.com
  * @param {string} type HTTP请求方式, 默认GET.
  * @param {object} data 请求的数据, object对象格式
@@ -26,7 +26,7 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
         return Promise.resolve();
     }
 
-    if(type == HttpMethod.POST) {
+    if(type === HttpMethod.POST) {
         if(isNotEmpty(data)){
             postData = qs.stringify(data, {allowDots: true});
         }
@@ -48,7 +48,7 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
     }
 
     if (__DEV__) {
-        info({url, domain, type, data}, "Request");
+        info({url, domain, type, data}, 'Request');
     }
 
     showLoading(type, url);
@@ -87,13 +87,13 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
                             /* eslint-enable no-eval */
                         }catch(e){
                             console.error(e);
-                            return Promise.reject("response数据转换错误");
+                            return Promise.reject('response数据转换错误');
                         }
                     }
                 }
 
                 if (__DEV__) {
-                    info(responseData, "Response");
+                    info(responseData, 'Response');
                 }
                 // 返回成功
                 if(responseData.success){
@@ -117,6 +117,7 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
             }
         }).catch(function (error) {
             hideLoading(error.config);
+            message.error('服务异常, 请稍后再试');
 
             if (error.response) {
                 console.error(error.response.data);
@@ -127,7 +128,6 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
                 reject(error.message);
                 throw error.message;
             }
-            message.error('服务异常, 请稍后再试');
         });
     });
 
@@ -185,14 +185,14 @@ function handError(response) {
 function info(data, title) {
     /* eslint-disable no-console */
     if (title) {
-        console.log(title + " start");
+        console.log(title + ' start');
     }
     console.log(data);
     if (console.table && isArray(data.data)) {
         console.table(data.data);
     }
     if (title) {
-        console.log(title + " end");
+        console.log(title + ' end');
     }
     /* eslint-enable no-console */
 }
@@ -201,7 +201,7 @@ Promise.prototype.done = function (onFulfilled, onRejected) {
     this.then(onFulfilled, onRejected)
         .catch(function (reason) {
             // 抛出一个全局错误
-            setTimeout(() => { throw reason }, 0);
+            setTimeout(() => { throw reason; }, 0);
         });
 };
 
@@ -209,6 +209,6 @@ Promise.prototype.finally = function (callback) {
     let P = this.constructor;
     return this.then(
         value  => P.resolve(callback(value)).then(() => value),
-        reason => P.resolve(callback(reason)).then(() => { throw reason })
+        reason => P.resolve(callback(reason)).then(() => { throw reason; })
     );
 };

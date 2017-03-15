@@ -1,7 +1,7 @@
 export function setSession(name, value) {
-    if (typeof sessionStorage === "object") {
+    if (typeof sessionStorage === 'object') {
         var data = value;
-        if (typeof value !== "string") {
+        if (typeof value !== 'string') {
             if (data === undefined) {
                 data = null;
             } else {
@@ -13,7 +13,7 @@ export function setSession(name, value) {
 }
 
 export function getSession(name) {
-    if (typeof sessionStorage === "object") {
+    if (typeof sessionStorage === 'object') {
         var data = sessionStorage.getItem(name);
         try {
             return JSON.parse(data);
@@ -25,9 +25,9 @@ export function getSession(name) {
 }
 
 export function setLocal(name, value) {
-    if (typeof localStorage === "object") {
+    if (typeof localStorage === 'object') {
         var data = value;
-        if (typeof value !== "string") {
+        if (typeof value !== 'string') {
             if (data === undefined) {
                 data = null;
             } else {
@@ -39,7 +39,7 @@ export function setLocal(name, value) {
 }
 
 export function getLocal(name) {
-    if (typeof localStorage === "object") {
+    if (typeof localStorage === 'object') {
         var data = localStorage.getItem(name);
         try {
             return JSON.parse(data);
@@ -51,12 +51,12 @@ export function getLocal(name) {
 }
 
 export function remove(name) {
-    if (typeof sessionStorage === "object") {
+    if (typeof sessionStorage === 'object') {
         if (sessionStorage.getItem(name)) {
             sessionStorage.removeItem(name);
         }
     }
-    if (typeof localStorage === "object") {
+    if (typeof localStorage === 'object') {
         if (localStorage.getItem(name)) {
             localStorage.removeItem(name);
         }
@@ -64,10 +64,10 @@ export function remove(name) {
 }
 
 export function clear(name){
-    if(typeof sessionStorage === "object"){
+    if(typeof sessionStorage === 'object'){
         sessionStorage.clear();
     }
-    if(typeof localStorage === "object"){
+    if(typeof localStorage === 'object'){
         localStorage.clear();
     }
 }

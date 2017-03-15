@@ -11,6 +11,7 @@ const extractAntD = new ExtractTextPlugin(`${STATIC_PATH}/css/[contenthash].antd
 const extractStyle = new ExtractTextPlugin(`${STATIC_PATH}/css/[contenthash].style.css`);
 
 const config = {
+    devtool: 'source-map',
     entry: {
         main: './src/index.jsx',
         vendor: ['react', 'react-dom', 'react-router']
@@ -65,23 +66,29 @@ const config = {
         extractAntD,
         extractStyle,
         new CleanWebpackPlugin(['build']),      // 清除编译目录
-        new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.CommonsChunkPlugin('vendor'),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',             // 当前目录下的index.html
+            filename: 'index.html'                  // 生成到build目录的index.html
+        }),
         new webpack.DefinePlugin({              // 配置全局变量
-            'process.env.NODE_ENV': JSON.stringify('production'),
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            },
             __DEV__: false,
             __MOCK__: false
         }),
         new webpack.LoaderOptionsPlugin({
+            minimize: true,                             // 压缩css, 并为css增加sourceMap文件
             options: {
                 postcss: function () {
                     return [precss, autoprefixer];
                 }
             }
         }),
-        new HtmlWebpackPlugin({
-            template: 'index.html',     // 当前目录下的index.html
-            filename: 'index.html'      // 生成到build目录的index.html
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            comments: false
         })
     ]
 };

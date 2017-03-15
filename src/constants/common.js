@@ -19,7 +19,7 @@ export const Event = {
     SHOW_LOADING: 'SHOW_LOADING',
     HIDE_LOADING: 'HIDE_LOADING'
 };
-export const TLD = '';
+export const TLD = 'stephenliu1944.com';
 // 二级域名
 export const SLD = {
     WWW: 'www'                          // 官网
