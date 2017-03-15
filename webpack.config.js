@@ -74,7 +74,7 @@ const config = {
         new CleanWebpackPlugin(['build']),              // 清除编译目录
         new webpack.optimize.CommonsChunkPlugin('vendor'),
         new HtmlWebpackPlugin({
-            template: 'src/index.html',     // 当前目录下的index.html
+            template: './src/index.html',     // 当前目录下的index.html
             filename: 'index.html'          // 生成到build目录的index.html
         }),
         new webpack.DefinePlugin({                      // 配置全局变量
