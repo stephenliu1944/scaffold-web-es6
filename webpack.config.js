@@ -73,14 +73,14 @@ const config = {
         new webpack.NoEmitOnErrorsPlugin(),             // 出错不终止插件
         new CleanWebpackPlugin(['build']),              // 清除编译目录
         new webpack.optimize.CommonsChunkPlugin('vendor'),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',     // 当前目录下的index.html
+            filename: 'index.html'          // 生成到build目录的index.html
+        }),
         new webpack.DefinePlugin({                      // 配置全局变量
             'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
             __DEV__: DEV_ENV,
             __MOCK__: MOCK_ENV
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/index.html',     // 当前目录下的index.html
-            filename: 'index.html'      // 生成到build目录的index.html
         }),
         new webpack.LoaderOptionsPlugin({
             options: {
