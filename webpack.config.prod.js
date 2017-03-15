@@ -17,8 +17,8 @@ const config = {
         vendor: ['react', 'react-dom', 'react-router']
     },
     output: {
-        path: path.join(__dirname, 'build'),
         publicPath: '/',
+        path: path.join(__dirname, 'build'),
         filename: `${STATIC_PATH}/js/[chunkhash].[name].js`
     },
     resolve: {

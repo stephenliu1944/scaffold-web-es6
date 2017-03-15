@@ -22,8 +22,8 @@ const config = {
         vendor: ['react', 'react-dom', 'react-router']
     },
     output: {
-        path: path.join(__dirname, 'build'),
         publicPath: '/',
+        path: path.join(__dirname, 'build'),
         filename: `${STATIC_PATH}/js/[name].js`
     },
     resolve: {
@@ -78,7 +78,9 @@ const config = {
             filename: 'index.html'          // 生成到build目录的index.html
         }),
         new webpack.DefinePlugin({                      // 配置全局变量
-            'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            },
             __DEV__: DEV_ENV,
             __MOCK__: MOCK_ENV
         }),
