@@ -9,7 +9,8 @@ mtui: 2.0.7
 ### 目录结构
 ```
 bin							// 可执行命令目录
-|-build.bat					// 编译src目录代码, 生成到build目录
+|-build.bat                 // 将src目录中的源码编译到build目录
+|-package.bat               // 将编译后的代码打包到dist目录并生产zip文件
 |-dev.bat					// 同上, 增加watch监听
 |-eslint.bat				// 执行eslint生产环境代码校验
 |-release-all.bat			// 将代码发布到开发和测试服务器

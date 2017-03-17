@@ -23,7 +23,7 @@ gulp.task('clean', () => {
 // 文件打包
 gulp.task('package', ['clean'], () => {
 	return gulp.src(`${BUILD_PATH}/**`)
-		.pipe(gulp.dest(`${DIST_PATH}/${FILENAME}/`))
+		.pipe(gulp.dest(`${DIST_PATH}/${FILENAME}/`));
 });
 // 将静态资源压缩为zip格式
 gulp.task('zip', ['package'], () => {
