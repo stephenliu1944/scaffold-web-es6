@@ -1,9 +1,9 @@
 import qs from 'qs';
 import axios from 'axios';
 import emitter from './emitter';
-import { HttpMethod, MOCK_PATH } from '../constants/common';
+import { hashHistory } from 'react-router';
+import { HttpMethod, MOCK_PATH, API_PATH, Event } from '../constants/common';
 import { isString, isArray, isBlank, isEmpty, isNotEmpty } from './util';
-import { API_PATH, Event } from '../constants/common';
 
 /**
  * @desc 使用axios第三方库访问后台服务器, 返回封装过后的Promise对象.
@@ -95,20 +95,12 @@ export default function MyPromise({url = null, domain = null, type = HttpMethod.
                 if (__DEV__) {
                     info(responseData, 'Response');
                 }
+
+                responseData = shimResponse(responseData);
+
                 // 返回成功
                 if(responseData.success){
-                    // 分页数据
-                    if(responseData.count) {
-                        resolve({
-                            data: responseData.data,
-                            count: responseData.count,
-                            pageSize: responseData.pageSize,
-                            pageNum: responseData.pageNum
-                        });
-                    // 常规数据
-                    }else{
-                        resolve(responseData.data);
-                    }
+                    resolve(responseData.data);
                 // 返回失败
                 }else{
                     reject(responseData);
@@ -144,41 +136,40 @@ function hideLoading(config) {
     emitter.emit(Event.HIDE_LOADING);
 }
 
-function handError(response) {
-    var code = response.code || response.resultCode;
-    var msg = response.msg || response.resultDesc;
+function shimResponse(response) {
+    var data = response.data;
 
-    switch (code) {
-        case 'SESSION_EMPTY':
-        /**
-         * 300~ 数据相关
-         */
-        case 314:   // 未登录
-            location.href = `${getRootPassport()}?callBack=${getRootBG()}`;
-            break;
-        /**
-         * 400~ 权限相关
-         */
-        case 401:   // 没有权限访问
-            // TODO: 页面跳转?
-            break;
-        case 402:   // 没有开通
-            location.href = `${getRootPassport()}/user/index.html`;
-            break;
-        case 403:   // 没有认证
-            location.href = `${getRootReport()}/search/noPermission.html`;
-            break;
-        case 405:   // 余额不足
-            location.href = `${getRootReport()}/search/noAcount.html`;
-            break;
+    // 兼容老接口分页数据写在data外的问题
+    if (response.count || response.total) {
+        data = {
+            data: responseData.data,
+            count: responseData.count || responseData.total,
+            pageSize: responseData.pageSize,
+            pageNum: responseData.pageNum
+        };
+    }
+
+    return {
+        data: data,
+        success: response.success,
+        msg: response.msg || response.resultDesc,   // 兼容老接口错误信息字段不一致的问题
+        code: response.code || response.resultCode  // 兼容老接口错误code字段不一致的问题
+    };
+}
+
+function handError(response) {
+    switch (response.code) {
         case 407:   // 没有登陆
-            location.href = `${getRootReport()}/search/noPermission_1.html`;
+            // TODO: 暂未开发登陆页面
+            hashHistory.push('/login');
             break;
-        /**
-         * 500~ 服务相关
-         */
+        case 500:   // 系统异常
+            message.error('系统异常, 请稍后再试');
+            break;
+        case 401:   // 没有权限访问
+            // TODO: 预留处理, 走默认处理
         default:    // 未知错误
-            message.error(msg);
+            message.error(response.msg);
     }
 }
 

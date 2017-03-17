@@ -79,7 +79,7 @@ const config = {
         }),
         new webpack.DefinePlugin({                      // 配置全局变量
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
+                'NODE_ENV': JSON.stringify(env.NODE_ENV)
             },
             __DEV__: DEV_ENV,
             __MOCK__: MOCK_ENV
