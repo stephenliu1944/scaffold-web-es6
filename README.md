@@ -79,6 +79,7 @@ npm install
 ### 本地调试
 1. 启动本地调试服务器
     运行 /bin/server.bat
+    地址 localhost:8080, 可在package.json文件config属性中配置IP和端口.    
 2. 启动mock服务器
     运行 /bin/server-mock.bat
 

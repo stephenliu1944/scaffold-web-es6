@@ -142,10 +142,10 @@ function shimResponse(response) {
     // 兼容老接口分页数据写在data外的问题
     if (response.count || response.total) {
         data = {
-            data: responseData.data,
-            count: responseData.count || responseData.total,
-            pageSize: responseData.pageSize,
-            pageNum: responseData.pageNum
+            data: response.data,
+            count: response.count || response.total,
+            pageSize: response.pageSize,
+            pageNum: response.pageNum
         };
     }
 
