@@ -1,5 +1,8 @@
 # Scaffolding Project ES6 项目
 
+### 项目介绍
+用于开发单页应用的脚手架, 基于ES6, 可轻松扩展为 React 项目.
+
 ### 项目依赖
 ```
 node:    v8.x.x
@@ -20,6 +23,14 @@ npm install
 ```
 npm install -g webpack@4.19.0 webpack-dev-server@3.1.8 eslint@5.6.0 babel-core@7.0.1 gulp@4.0.0
 ```
+
+### React扩展
+1. 安装 babel 插件
+```
+npm i -D @babel/preset-react
+npm i -S react react-dom
+```
+2. 修改 babel.config.js 配置, 解开2处 '@babel/preset-react' 注释即可.
 
 ### 快速启动
 进入bin目录:  
