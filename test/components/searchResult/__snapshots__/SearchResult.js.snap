@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check searchResult.render() 1`] = `
+"<ul class=\\"SearchResult-list\\">
+            <li class=\\"SearchItem\\">
+                <div class=\\"SearchItem-flag\\">
+                    <img class=\\"SearchItem-logo\\" src=\\"suse.png\\" />
+                </div>
+                <div class=\\"SearchItem-detail\\">
+                    <div class=\\"Row\\">
+                        <span class=\\"Info InfoInfo--active\\">
+                            <i class=\\"Icon IconSmall icon-desktop\\"></i>
+                            <span class=\\"Info-text\\">bjstdmngbdr15.thoughtworks.com</span>
+                        </span>
+                        <span class=\\"Badge Badge--building\\">idle</span>
+                        <span class=\\"Info\\">
+                            <i class=\\"Icon IconSmall icon-info\\"></i>
+                            <span class=\\"Info-text\\">192.168.1.110</span>
+                        </span>
+                        <span class=\\"Info\\">
+                            <i class=\\"Icon IconSmall icon-folder\\"></i>
+                            <span class=\\"Info-text\\">/var/lib/cruise-agent</span>
+                        </span>
+                    </div>
+                    <div class=\\"Row Resources\\">
+                        <a class=\\"Button SearchItem-addBtn\\" data-id=\\"5\\">
+                            <i class=\\"Icon IconSmall icon-plus\\"></i>
+                        </a>
+                        <span class=\\"Arrow Arrow--left\\"><</span>
+                        <div class=\\"Label-container\\">
+                            <ul class=\\"Label-list\\">
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">a</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"5\\" data-resource=\\"a\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">b</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"5\\" data-resource=\\"b\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">c</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"5\\" data-resource=\\"c\\"></i>
+            </li></ul>
+                        </div>
+                        <span class=\\"Arrow Arrow--right\\">></span>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class=\\"SearchItem\\">
+                <div class=\\"SearchItem-flag\\">
+                    <img class=\\"SearchItem-logo\\" src=\\"centos.png\\" />
+                </div>
+                <div class=\\"SearchItem-detail\\">
+                    <div class=\\"Row\\">
+                        <span class=\\"Info InfoInfo--active\\">
+                            <i class=\\"Icon IconSmall icon-desktop\\"></i>
+                            <span class=\\"Info-text\\">bjstdmngbdr02.thoughtworks.com</span>
+                        </span>
+                        <span class=\\"Badge Badge--building\\">idle</span>
+                        <span class=\\"Info\\">
+                            <i class=\\"Icon IconSmall icon-info\\"></i>
+                            <span class=\\"Info-text\\">192.168.1.103</span>
+                        </span>
+                        <span class=\\"Info\\">
+                            <i class=\\"Icon IconSmall icon-folder\\"></i>
+                            <span class=\\"Info-text\\">/var/lib/cruise-agent</span>
+                        </span>
+                    </div>
+                    <div class=\\"Row Resources\\">
+                        <a class=\\"Button SearchItem-addBtn\\" data-id=\\"6\\">
+                            <i class=\\"Icon IconSmall icon-plus\\"></i>
+                        </a>
+                        <span class=\\"Arrow Arrow--left\\"><</span>
+                        <div class=\\"Label-container\\">
+                            <ul class=\\"Label-list\\">
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">Safari</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"6\\" data-resource=\\"Safari\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">Ubuntu</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"6\\" data-resource=\\"Ubuntu\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">ee</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"6\\" data-resource=\\"ee\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">w</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"6\\" data-resource=\\"w\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">r</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"6\\" data-resource=\\"r\\"></i>
+            </li></ul>
+                        </div>
+                        <span class=\\"Arrow Arrow--right\\">></span>
+                        
+            <a class=\\"Button SearchItem-denyBtn\\">
+                <i class=\\"Icon IconSmall icon-deny\\"></i>
+                <span>Deny</span>
+            </a>
+                    </div>
+                </div>
+            </li></ul>"
+`;
+
+exports[`check searchResult.renderAgent() 1`] = `
+"
+            <li class=\\"SearchItem\\">
+                <div class=\\"SearchItem-flag\\">
+                    <img class=\\"SearchItem-logo\\" src=\\"windows.png\\" />
+                </div>
+                <div class=\\"SearchItem-detail\\">
+                    <div class=\\"Row\\">
+                        <span class=\\"Info InfoInfo--active\\">
+                            <i class=\\"Icon IconSmall icon-desktop\\"></i>
+                            <span class=\\"Info-text\\">bjstdmngbdr08.thoughtworks.com</span>
+                        </span>
+                        <span class=\\"Badge Badge--building\\">building</span>
+                        <span class=\\"Info\\">
+                            <i class=\\"Icon IconSmall icon-info\\"></i>
+                            <span class=\\"Info-text\\">192.168.1.80</span>
+                        </span>
+                        <span class=\\"Info\\">
+                            <i class=\\"Icon IconSmall icon-folder\\"></i>
+                            <span class=\\"Info-text\\">/var/lib/cruise-agent</span>
+                        </span>
+                    </div>
+                    <div class=\\"Row Resources\\">
+                        <a class=\\"Button SearchItem-addBtn\\" data-id=\\"2\\">
+                            <i class=\\"Icon IconSmall icon-plus\\"></i>
+                        </a>
+                        <span class=\\"Arrow Arrow--left\\"><</span>
+                        <div class=\\"Label-container\\">
+                            <ul class=\\"Label-list\\">
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">Firefox</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"Firefox\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">aaaa</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"aaaa\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">r.e.e.r</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"r.e.e.r\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">2</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"2\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">3</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"3\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">4</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"4\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">b</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"b\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">ccc</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"ccc\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">bbbbbbbbbbb</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"bbbbbbbbbbb\\"></i>
+            </li>
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">eeeeeeeeee</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"2\\" data-resource=\\"eeeeeeeeee\\"></i>
+            </li></ul>
+                        </div>
+                        <span class=\\"Arrow Arrow--right\\">></span>
+                        
+            <a class=\\"Button SearchItem-denyBtn\\">
+                <i class=\\"Icon IconSmall icon-deny\\"></i>
+                <span>Deny</span>
+            </a>
+                    </div>
+                </div>
+            </li>"
+`;
+
+exports[`check searchResult.renderDeny() 1`] = `
+"
+            <a class=\\"Button SearchItem-denyBtn\\">
+                <i class=\\"Icon IconSmall icon-deny\\"></i>
+                <span>Deny</span>
+            </a>"
+`;
+
+exports[`check searchResult.renderResourcecheck() 1`] = `
+"
+            <li class=\\"Label-item\\">
+                <span class=\\"Label-text\\">Firefox</span>
+                <i class=\\"Icon IconSmall icon-trash\\" data-id=\\"10\\" data-resource=\\"Firefox\\"></i>
+            </li>"
+`;
