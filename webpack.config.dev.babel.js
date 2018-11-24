@@ -19,13 +19,13 @@ export default webpackMerge(baseConfig, {
         contentBase: path.resolve(__dirname, 'build'),
         proxy: {
             '/mock': {
+                target: mock,
                 changeOrigin: true,
-                target: `${ mock.host }:${ mock.port }`,
                 pathRewrite: { '^/mock': '' }
             },
             '/proxy': {   // matches paths starting with '/api'
+                target: api,
                 changeOrigin: true,
-                target: `${ api.host }:${ api.port }`,
                 pathRewrite: { '^/proxy': '' }
             }
         },
