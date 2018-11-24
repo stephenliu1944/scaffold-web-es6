@@ -11,7 +11,7 @@ export default webpackMerge(baseConfig, {
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         host: '0.0.0.0',
-        port: local.port,
+        port: local,
         disableHostCheck: true,
         compress: true,             // 开起 gzip 压缩
         inline: true,
