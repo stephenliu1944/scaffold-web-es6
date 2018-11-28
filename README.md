@@ -165,7 +165,7 @@ sudo yum install gcc-c++ make
 ```
 chmod -R 777 xxxxxx/
 ```
-4. 进入项目根目录, 执行
+4. 进入项目根目录, 执行  
 ```
 npm i
 ```
