@@ -71,8 +71,8 @@
   ],
   "devServer": {
     "local": 8080,
-    "mock": "http://localhost:3001",
-    "api": "http://localhost:3001"
+    "mock": 3001,
+    "proxy": "http://localhost:3001"
   },
   "deploy": {
     "dev": {

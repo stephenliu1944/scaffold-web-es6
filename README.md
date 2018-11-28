@@ -42,20 +42,8 @@ npm i -S react react-dom
 ### 服务配置
 web服务端口默认为8080.  
 mock服务端口默认为3001.  
-api接口默认请求mock服务.
-如遇端口冲突, 可以在package.json中修改:  
-```
-"devServer": {      // web服务配置
-  "port": 8080      
-},
-"mockServer": {     // mock服务配置
-  "port": 3001      
-}
-"apiServer": {      // 请求的后端接口服务配置(开发环境), 默认配置的mock服务.
-  "host": "http://localhost"
-  "port": 3001
-}
-```
+proxy配置HTTP请求代理到的服务器.
+如遇端口冲突, 可以在package.json > devServer中修改.
 
 ### 目录结构
 ```
@@ -130,12 +118,11 @@ webpack.config.prod.babel.js                // webpack生产环境配置文件.
 1. web服务  
 运行 /bin/startup.bat  
 浏览器访问 localhost:8080 即可,  
-可在 package.json > devServer > port 配置web服务的端口.
-可在 package.json > apiServer > host, port 配置请求的接口服务地址.
+可在 package.json > devServer > local 配置web服务的端口.
 2. web服务 + mock服务  
 运行 /bin/startup-mock.bat (无需再运行 /bin/server.bat).  
 浏览器访问 localhost:8080 即可,  
-可在 package.json > mockServer > port 配置mock服务的端口.
+可在 package.json > devServer > mock 配置mock服务的端口.
 
 ### 项目打包
 1. 在 package.json > packageName 中配置打包生成的文件夹名称, 默认为项目名.
@@ -196,5 +183,3 @@ sudo npm install --unsafe-perm -g node-sass
 ```
 参考
 https://github.com/sass/node-sass/blob/master/TROUBLESHOOTING.md
-    
-

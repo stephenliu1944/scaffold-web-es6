@@ -4,7 +4,7 @@ import webpackMerge from 'webpack-merge';
 import baseConfig from './webpack.config.base';
 import pkg from './package.json';
 
-const { local, mock, api } = pkg.devServer;
+const { local, proxy } = pkg.devServer;
 
 export default webpackMerge(baseConfig, {
     mode: 'development',
@@ -18,13 +18,8 @@ export default webpackMerge(baseConfig, {
         historyApiFallback: true,   // browserHistory路由
         contentBase: path.resolve(__dirname, 'build'),
         proxy: {
-            '/mock': {
-                target: mock,
-                changeOrigin: true,
-                pathRewrite: { '^/mock': '' }
-            },
             '/proxy': {   // matches paths starting with '/api'
-                target: api,
+                target: proxy,
                 changeOrigin: true,
                 pathRewrite: { '^/proxy': '' }
             }

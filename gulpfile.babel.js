@@ -8,7 +8,7 @@ import { execSync } from 'child_process';
 
 const BUILD_PATH = 'build';                             // 编译文件
 const DIST_PATH = 'dist';                               // 目的地文件
-const PACKAGE_NAME = pkg.packageName;                // 打包生成的文件名, 如www.bbdservice.com
+const PACKAGE_NAME = pkg.packageName;                   // 打包生成的文件名
 const { dev, test } = pkg.deploy;
 
 // 清除dist目录
