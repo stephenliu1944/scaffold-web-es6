@@ -1,14 +1,24 @@
 {
   "name": "scaffolding-project-es6",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "用于开发基于ES6的单页应用脚手架",
+  "license": "MIT",
+  "author": "Stephen Liu",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
   "scripts": {
     "build:dev": "webpack --config webpack.config.dev.babel.js --colors --display-error-details",
     "build:prod": "webpack --config webpack.config.prod.babel.js --colors --display-error-details",
     "start": "webpack-dev-server --config webpack.config.dev.babel.js --colors",
     "mock": "node mock-server/server.js",
     "start:mock": "concurrently \"cross-env NODE_ENV=mock npm start\" \"npm run mock\"",
-    "lint": "eslint -c .eslintrc.json --fix --ext .js,.jsx src/",
+    "lint:js": "eslint -c .eslintrc.json --fix",
     "test": "jest",
     "package": "npm run build:prod && gulp zip",
     "deploy:dev": "npm run package && gulp deploy-dev",
@@ -16,11 +26,17 @@
     "deploy:all": "npm run package && gulp deploy-all",
     "git:push": "gulp git-push"
   },
-  "author": {
-    "name": "Stephen Liu",
-    "url": "https://github.com/stephenliu1944/scaffolding-project-es6.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
-  "license": "ISC",
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "npm run lint:js",
+      "git add"
+    ]
+  },
   "dependencies": {
     "@babel/runtime": "^7.0.0"
   },
@@ -49,14 +65,14 @@
     "gulp-sftp": "^0.1.5",
     "gulp-zip": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "json-server": "^0.14.0",
+    "lint-staged": "^8.1.0",
     "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
-    "postcss-nested": "^4.1.0",
-    "pre-commit": "^1.2.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
@@ -66,9 +82,6 @@
     "webpack-dev-server": "^3.1.8",
     "webpack-merge": "^4.1.4"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "devServer": {
     "local": 8080,
     "mock": 3001,
