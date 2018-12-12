@@ -1,6 +1,5 @@
 import http from '@beancommons/http';
 import { HttpMethod } from 'constants/common';
-
 /**
  * Demo
  */
