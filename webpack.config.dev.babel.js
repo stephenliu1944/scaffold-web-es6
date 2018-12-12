@@ -18,7 +18,9 @@ export default webpackMerge(baseConfig, {
         inline: true,
         historyApiFallback: true,   // browserHistory路由
         contentBase: path.resolve(__dirname, 'build'),
-        proxy: proxy(proxyOpts)
+        proxy: {
+            ...proxy(proxyOpts)
+        }
     },
     module: {
         rules: [{

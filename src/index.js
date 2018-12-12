@@ -10,7 +10,6 @@ import { getIPInfo } from 'services/demo';
 // 设置全局 http 默认选项。
 http.defaults = {
     // baseURL: Server.getOpenAPIServer(),
-    // requestInterceptor,
     // resolveInterceptor,
     proxyPath: proxyBaseURL,
     enableProxy: __DEV__,

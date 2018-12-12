@@ -92,7 +92,7 @@
   },
   "project": {
     "title": "My App",
-    "rootPath": "root",
+    "rootPath": "",
     "packageName": "www.myapp.com"
   },
   "deploy": {
