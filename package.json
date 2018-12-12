@@ -93,7 +93,7 @@
   "project": {
     "title": "My App",
     "rootPath": "root",
-    "packageName": "my-app"
+    "packageName": "www.myapp.com"
   },
   "deploy": {
     "dev": {
