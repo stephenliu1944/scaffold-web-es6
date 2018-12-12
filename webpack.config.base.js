@@ -3,8 +3,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+import { project } from './package.json';
 
-const ASSETS_PATH = 'assets';
+const ROOT_PATH = (project.rootPath && `${project.rootPath}/`) || '';
+const ASSETS_PATH = ROOT_PATH + 'assets';
 
 export default {
     entry: {
@@ -127,8 +129,10 @@ export default {
             chunkFilename: `${ASSETS_PATH}/css/[name].[contenthash].css`   // chunk css file
         }),
         new HtmlWebpackPlugin({                             // 主页面入口index.html
-            filename: 'index.html',
-            template: './src/template.html'
+            title: project.title,
+            faviconPath: ASSETS_PATH,
+            filename: ROOT_PATH + 'index.html',
+            template: './src/template.html',
         }),
         new CaseSensitivePathsPlugin()                      // 文件大小写检测
     ]

@@ -125,8 +125,15 @@ webpack.config.prod.babel.js                // webpack生产环境配置文件.
 可在 package.json > devServer > mock 配置mock服务的端口.
 
 ### 项目打包
-1. 在 package.json > packageName 中配置打包生成的文件夹名称, 默认为项目名.
-2. 运行 /bin/package.bat, 会在 /dist 目录生成打包后的项目文件夹和压缩后的zip文件, 供发版使用.
+1. 在 package.json > project 中配置项目相关信息, 详见下方说明.
+2. 运行 /bin/package.bat或.sh, 会在 /dist 目录生成打包后的项目文件夹和压缩后的zip文件, 供发版使用.
+```
+"project": {
+    "title": "My App",          // index.html的默认title
+    "rootPath": "root",         // 项目的根路径, 如果配置改属性, 本地调试时需加上此根路径(localhost:8080/root), 用于在多个单页系统中根据根路径来映射项目静态资源, 默认为空.
+    "packageName": "my-app"     // dist目录打包生成出的项目包名.
+},
+```
 
 ### 自动发布流程
 1. 在package.json > deploy 中配置发布服务器信息.

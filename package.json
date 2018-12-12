@@ -38,7 +38,8 @@
     ]
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.0.0",
+    "@beancommons/http": "^0.1.48"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
@@ -48,6 +49,7 @@
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@beancommons/proxy": "^0.1.13",
     "autoprefixer": "^9.1.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -86,7 +88,12 @@
   "devServer": {
     "local": 8080,
     "mock": 3001,
-    "proxy": "http://localhost:3001"
+    "proxy": "http://ip.taobao.com"
+  },
+  "project": {
+    "title": "My App",
+    "rootPath": "root",
+    "packageName": "my-app"
   },
   "deploy": {
     "dev": {
@@ -107,6 +114,5 @@
       "timeout": 60000,
       "remotePath": "/usr/local/static"
     }
-  },
-  "packageName": "project-demo"
+  }
 }

@@ -1,10 +1,11 @@
 import path from 'path';
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
+import { proxy } from '@beancommons/proxy';
 import baseConfig from './webpack.config.base';
 import pkg from './package.json';
 
-const { local, proxy } = pkg.devServer;
+const { local, proxy: proxyOpts } = pkg.devServer;
 
 export default webpackMerge(baseConfig, {
     mode: 'development',
@@ -17,13 +18,7 @@ export default webpackMerge(baseConfig, {
         inline: true,
         historyApiFallback: true,   // browserHistory路由
         contentBase: path.resolve(__dirname, 'build'),
-        proxy: {
-            '/proxy': {   // matches paths starting with '/api'
-                target: proxy,
-                changeOrigin: true,
-                pathRewrite: { '^/proxy': '' }
-            }
-        },
+        proxy: proxy(proxyOpts)
     },
     module: {
         rules: [{

@@ -1,4 +1,4 @@
-import './subComponent.scss';
+import styles from './subComponent.scss';
 
 export default class SubComponent {
 
@@ -6,8 +6,10 @@ export default class SubComponent {
 
     render() {
         return `
-            <h3>SubComponent</h3>
-            <h3>我是子组件</h3>
+            <div class=${styles.subComponent}>
+                <h3>SubComponent</h3>
+                <h3>我是子组件</h3>
+            </div>
         `;
     }
 }

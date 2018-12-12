@@ -3,13 +3,13 @@ import gulp from 'gulp';
 import del from 'del';
 import zip from 'gulp-zip';
 import sftp from 'gulp-sftp';
-import pkg from './package.json';
+import { project, deploy } from './package.json';
 import { execSync } from 'child_process';
 
-const BUILD_PATH = 'build';                             // 编译文件
-const DIST_PATH = 'dist';                               // 目的地文件
-const PACKAGE_NAME = pkg.packageName;                   // 打包生成的文件名
-const { dev, test } = pkg.deploy;
+const BUILD_PATH = 'build';                    // 编译文件
+const DIST_PATH = 'dist';                      // 目的地文件
+const { packageName } = project;               // 打包生成的文件名
+const { dev, test } = deploy;
 
 // 清除dist目录
 gulp.task('clean', () => {
@@ -18,12 +18,12 @@ gulp.task('clean', () => {
 // 文件打包
 gulp.task('dist', gulp.series('clean', () => {
     return gulp.src(`${BUILD_PATH}/**`)
-               .pipe(gulp.dest(`${DIST_PATH}/${PACKAGE_NAME}/`));
+               .pipe(gulp.dest(`${DIST_PATH}/${packageName}/`));
 }));
 // 将静态资源压缩为zip格式
 gulp.task('zip', gulp.series('dist', () => {
     return gulp.src(`${DIST_PATH}/**`, {base: `${DIST_PATH}/`})
-               .pipe(zip(`${PACKAGE_NAME}.zip`))
+               .pipe(zip(`${packageName}.zip`))
                .pipe(gulp.dest(DIST_PATH));
 }));
 // 将静态资源发布到 dev 服务器
