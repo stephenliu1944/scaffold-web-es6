@@ -44,6 +44,7 @@ export default webpackMerge(baseConfig, {
         // 配置全局变量
         new webpack.DefinePlugin({
             __DEV__: true,
+            'process.env.NODE_ENV': JSON.stringify('development'),
             ...define(globals, '__', "__")
         })
     ]
