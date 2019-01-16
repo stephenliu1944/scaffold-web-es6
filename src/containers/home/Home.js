@@ -1,11 +1,26 @@
 import catPNG from 'images/cat.png';
 import styles from './home.scss';
 import SubComponent from './components/subComponent/SubComponent';
+import { getIPInfo, uploadURL } from 'services/demo';
 
 export default class Home {
     
     constructor() {
         this.sub = new SubComponent();
+        /** 
+         * HTTP Demo 
+         */ 
+        // http request
+        getIPInfo('210.75.225.254').then((data) => {
+
+        }, (error) => {
+
+        });
+        // create a request url
+        var url = uploadURL({
+            name: 'stephen',
+            age: 35
+        });
     }
 
     render() {

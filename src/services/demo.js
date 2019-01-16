@@ -1,4 +1,4 @@
-import http from '@beancommons/http';
+import http, { prepare } from '@beancommons/http';
 import { HttpMethod } from 'constants/common';
 /**
  * Demo
@@ -12,7 +12,6 @@ export function getUserById(id) {
 // 通过 get ?param1=xx&param2=xx 传参
 export function getIPInfo(ip) {
     return http({
-        baseURL: 'http://ip.taobao.com',
         url: '/service/getIpInfo.php',
         params: {
             ip
@@ -29,3 +28,13 @@ export function addUser(user) {
         }
     });
 }
+// 返回一个处理过的 URL
+export function uploadURL(user) {
+    return prepare({
+        url: '/upload',
+        params: {
+            user
+        }
+    });
+}
+

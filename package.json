@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "用于开发基于ES6的单页应用脚手架",
   "license": "MIT",
-  "author": "Stephen Liu",
   "repository": {
     "type": "git",
     "url": ""
@@ -42,7 +41,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "@beancommons/http": "^0.1.48"
+    "@beancommons/http": "^0.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
@@ -52,7 +51,8 @@
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@beancommons/proxy": "^0.1.13",
+    "@beancommons/define": "^0.2.1",
+    "@beancommons/proxy": "^0.2.1",
     "autoprefixer": "^9.1.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -88,10 +88,15 @@
     "webpack-dev-server": "^3.1.8",
     "webpack-merge": "^4.1.4"
   },
-  "devServer": {
-    "local": 8080,
-    "mock": 3001,
-    "proxy": "http://ip.taobao.com"
+  "devEnvironment": {
+    "servers": {
+      "local": 8080,
+      "mock": 3001
+    },
+    "proxies": "http://ip.taobao.com",
+    "globals": {
+      "DOMAIN": "http://ip.taobao.com"
+    }
   },
   "project": {
     "title": "My App",

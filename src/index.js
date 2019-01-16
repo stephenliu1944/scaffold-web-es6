@@ -1,22 +1,14 @@
 import 'styles/main.scss';
 import 'images/favicon.ico';
-import http, { proxyBaseURL } from '@beancommons/http';
+import { settings, proxyHost } from '@beancommons/http';
 import Home from 'containers/home/Home';
-import { getIPInfo } from 'services/demo';
 
-/**
- * Demo
- */
-// 设置全局 http 默认选项。
-http.defaults = {
-    // baseURL: Server.getOpenAPIServer(),
-    // resolveInterceptor,
-    proxyPath: proxyBaseURL,
+// set global http settings.
+settings({
+    baseURL: __DEV__ ? __DOMAIN__ : null,
+    proxyURL: proxyHost,
     enableProxy: __DEV__,
     isDev: __DEV__
-};
-
-// http 请求
-getIPInfo('210.75.225.254');
+});
 
 document.querySelector('#app').innerHTML = new Home().render();
