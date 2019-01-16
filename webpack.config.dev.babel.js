@@ -6,7 +6,7 @@ import { proxy } from '@beancommons/proxy';
 import baseConfig from './webpack.config.base';
 import pkg from './package.json';
 
-const { servers, proxies, globals } = pkg.devEnvironment;
+const { servers, proxies, globals } = pkg.devEnvironments;
 
 export default webpackMerge(baseConfig, {
     mode: 'development',

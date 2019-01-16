@@ -6,7 +6,7 @@ import { define } from '@beancommons/define';
 import baseConfig from './webpack.config.base';
 import pkg from './package.json';
 
-const { globals } = pkg.devEnvironment;
+const { globals } = pkg.devEnvironments;
 
 export default webpackMerge(baseConfig, {
     mode: 'production',
