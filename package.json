@@ -93,7 +93,9 @@
       "local": 8080,
       "mock": 3001
     },
-    "proxies": "http://ip.taobao.com",
+    "proxies": [
+      "http://ip.taobao.com"
+    ],
     "globals": {
       "DOMAIN": "http://ip.taobao.com"
     }
