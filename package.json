@@ -12,9 +12,9 @@
     "url": ""
   },
   "scripts": {
-    "build:dev": "webpack --config webpack.config.dev.babel.js --colors --display-error-details",
-    "build:prod": "webpack --config webpack.config.prod.babel.js --colors --display-error-details",
-    "start": "webpack-dev-server --config webpack.config.dev.babel.js --colors",
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.dev.babel.js --colors --display-error-details",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.prod.babel.js --colors --display-error-details",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.babel.js --colors",
     "mock": "node mock-server/server.js",
     "start:mock": "concurrently \"cross-env npm start\" \"npm run mock\"",
     "lint:js": "eslint -c .eslintrc.prod.json --fix",
@@ -95,10 +95,10 @@
       "mock": 3001
     },
     "proxies": [
-      "http://ip.taobao.com"
+      "http://ip-api.com"
     ],
     "globals": {
-      "DOMAIN": "http://ip.taobao.com"
+      "DOMAIN": "http://ip-api.com"
     }
   },
   "project": {

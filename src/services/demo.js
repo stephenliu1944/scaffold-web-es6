@@ -4,17 +4,17 @@ import { HttpMethod } from 'constants/common';
  * Demo
  */
 // 通过 url 传参
-export function getUserById(id) {
+export function getIPInfo(ip) {
     return http({
-        url: `/users/${id}`
+        url: `/json/${ip}`
     });
 }
 // 通过 get ?param1=xx&param2=xx 传参
-export function getIPInfo(ip) {
+export function getIPInfoByFields(fields) {
     return http({
-        url: '/service/getIpInfo.php',
+        url: '/json/24.48.0.1',
         params: {
-            ip
+            fields
         }
     });
 }
