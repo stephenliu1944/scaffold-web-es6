@@ -16,11 +16,12 @@ export default class Home {
         }, (error) => {
 
         });
-        // create a request url
-        var url = uploadURL({
+        // create a prerequest object
+        var obj = uploadURL({
             name: 'stephen',
             age: 35
         });
+        // obj: { url, params, data, headers }
     }
 
     render() {
