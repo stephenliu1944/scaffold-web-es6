@@ -5,9 +5,8 @@ import Home from 'containers/home/Home';
 
 // set global http settings.
 settings({
-    baseURL: __DEV__ ? __DOMAIN__ : null,
-    proxyURL: proxyHost,
-    enableProxy: __DEV__,
+    baseURL: __DEV__ && __DOMAIN__,
+    proxyURL: __DEV__ && proxyHost,
     isDev: __DEV__
 });
 
