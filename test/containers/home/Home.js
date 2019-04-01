@@ -1,6 +1,6 @@
-// import Home from 'containers/home/Home';
+import Home from 'containers/home/Home';
 
-// it('check home.render()', () => {
-//     var home = new Home();
-//     expect(home.render()).toMatchSnapshot();
-// });
+it('check home.render()', () => {
+    var home = new Home();
+    expect(home.render()).toMatchSnapshot();
+});

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check home.render() 1`] = `
+"
+            <div class=home>
+                <h1>Home</h1>
+                <h1>我是容器组件</h1>
+                <img src=cat.png /> 
+                
+            <div class=subComponent>
+                <h3>SubComponent</h3>
+                <h3>我是子组件</h3>
+            </div>
+        
+            </div>
+        "
+`;

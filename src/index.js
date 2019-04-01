@@ -1,5 +1,5 @@
-import 'styles/main.scss';
 import 'images/favicon.ico';
+import 'styles/main.scss';
 import { settings, proxyHost } from '@beancommons/http';
 import Home from 'containers/home/Home';
 
