@@ -17,7 +17,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.babel.js --colors",
     "mock": "node mock-server/server.js",
     "start:mock": "concurrently \"cross-env npm start\" \"npm run mock\"",
-    "lint:js": "eslint -c .eslintrc.prod.json --fix",
+    "lint:js": "eslint src/ -c .eslintrc.prod.json --fix",
     "test": "jest",
     "package": "npm run build:prod && gulp zip",
     "deploy:dev": "npm run package && gulp deploy-dev",
