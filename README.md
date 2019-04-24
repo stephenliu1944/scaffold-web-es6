@@ -21,7 +21,7 @@ npm install
 1. 如果使用 cnpm install 安装模块, 在启动服务时报错(比如提示模块未找到), 尝试删除 node_modules 目录, 并使用 npm i 重新安装.
 2. 如遇全局模块问题, 可能需要重新安装全局模块, 安装前请先卸载已有版本, 然后执行如下命令:
 ```
-npm install -g webpack@4.19.0 webpack-dev-server@3.1.8 eslint@5.6.0 babel-core@7.0.1 gulp@4.0.0
+npm install -g webpack@4.19.0 webpack-dev-server@3.1.8 eslint@5.6.0 @babel/core@7.0.1 gulp@4.0.0
 ```
 
 ### React扩展
