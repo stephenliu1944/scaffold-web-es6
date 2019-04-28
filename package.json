@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "@beancommons/http": "^0.3.3"
+    "@beancommons/http": "^0.3.7"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
