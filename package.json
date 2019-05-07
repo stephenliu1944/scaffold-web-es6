@@ -99,7 +99,7 @@
       "http://ip-api.com"
     ],
     "globals": {
-      "DOMAIN": "http://ip-api.com"
+      "__DOMAIN__": "http://ip-api.com"
     }
   },
   "project": {

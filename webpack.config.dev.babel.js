@@ -45,7 +45,7 @@ export default webpackMerge(baseConfig, {
         new webpack.DefinePlugin({
             __DEV__: true,
             'process.env.NODE_ENV': JSON.stringify('development'),
-            ...define(globals, '__', "__")
+            ...define(globals)
         })
     ]
 });

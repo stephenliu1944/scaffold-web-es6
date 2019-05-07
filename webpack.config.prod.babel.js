@@ -38,7 +38,7 @@ export default webpackMerge(baseConfig, {
         new webpack.DefinePlugin({
             __DEV__: false,
             'process.env.NODE_ENV': JSON.stringify('production'),
-            ...define(globals, '__', "__")
+            ...define(globals)
         })
     ]
 });
