@@ -1,11 +1,3 @@
-# Home work mock server
-
-This mock server is built by [json-server](https://github.com/typicode/json-server). All the mocked data are put in file `db.json`. 
-
-Please use this mock server as the back end server of your homework. You can use this project as mock server directly, or you can integrate this mock server into your own project. 
-
-Of course, if you think anything in this mock server is not OK for you, you can absolutely change this server to help you finish your homework.
-
 ## Start mock server
 
 Please clone or download this project to your local, and use `npm` or `yarn` to install the dependences and start server:

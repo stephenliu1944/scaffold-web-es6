@@ -65,7 +65,7 @@ bin                                         // 可执行命令目录.
 |-test.sh                                   // 执行jest单元测试(linux)
 build                                       // 代码编译后生成的临时目录
 dist                                        // 代码打包后生成的临时目录
-mock-server                                 // mock服务目录
+mock                                        // mock服务目录
 |-data                                      // mock数据存放目录
 |-server.js                                 // mock服务配置
 src                                         // 项目源码目录
