@@ -6,7 +6,7 @@ import Home from 'containers/home/Home';
 // set global http settings.
 http.settings({
     baseURL: __DEV__ && __DOMAIN__,
-    proxyPath: __DEV__ && helpers.proxyHost(),
+    proxyPath: __DEV__ && helpers.proxy.proxyHost(),
     isDev: __DEV__
 });
 
