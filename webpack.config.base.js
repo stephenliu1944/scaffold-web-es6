@@ -32,17 +32,17 @@ export default {
         }
     },
     optimization: {
-        // splitChunks: {
-        //     minSize: 10,
-        //     minChunks: 1,
-        //     cacheGroups: {
-        //         vendors: {
-        //             test: /[\\/]node_modules[\\/]/,
-        //             name: 'vendors',
-        //             chunks: 'all'
-        //         }
-        //     }
-        // },
+        splitChunks: {
+            minSize: 10,
+            minChunks: 1,
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
+        },
         noEmitOnErrors: true
     },
     module: {

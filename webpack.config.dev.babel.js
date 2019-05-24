@@ -3,7 +3,9 @@ import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 import { define } from '@beancommons/define';
 import { proxy } from '@beancommons/proxy';
+import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import baseConfig from './webpack.config.base';
+
 import pkg from './package.json';
 
 const { servers, proxies, globals } = pkg.devEnvironments;
@@ -41,6 +43,8 @@ export default webpackMerge(baseConfig, {
         }]
     },
     plugins: [
+        // 检查打包内容
+        // new BundleAnalyzerPlugin(),
         // 配置全局变量
         new webpack.DefinePlugin({
             __DEV__: true,
