@@ -66,6 +66,7 @@
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
+    "del": "^4.1.1",
     "eslint": "^5.6.0",
     "eslint-loader": "^2.1.0",
     "file-loader": "^2.0.0",
