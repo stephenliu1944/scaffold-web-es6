@@ -1,12 +1,11 @@
 import 'images/favicon.ico';
 import 'styles/main.scss';
-import http, { helpers } from '@beancommons/http';
+import http from 'axios-enhance';
 import Home from 'containers/home/Home';
 
 // set global http settings.
 http.settings({
-    baseURL: __DEV__ && __DOMAIN__,
-    proxyPath: __DEV__ && helpers.proxy.proxyHost(),
+    proxyPath: __DEV__,
     isDev: __DEV__
 });
 

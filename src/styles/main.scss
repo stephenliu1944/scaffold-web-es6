@@ -16,9 +16,9 @@
     input,
     select,
     textarea {
-        font: 14px "Microsoft Yahei","PingFang SC",Helvetica,Arial,Simsun,sans-serif;
+        font: 14px 'Microsoft Yahei','PingFang SC',Helvetica,Arial,Simsun,sans-serif;
     }
-    
+
     ul {
         list-style-type: none;
     }
@@ -30,7 +30,7 @@
     }
 
     .clearfix:after {
-        content: ".";
+        content: '.';
         display: block;
         height: 0;
         clear: both;

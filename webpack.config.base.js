@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+import StyleLintPlugin from 'stylelint-webpack-plugin';
 import { project } from './package.json';
 
 const ROOT_PATH = (project.rootPath && `${project.rootPath}/`) || '';
@@ -127,6 +128,11 @@ export default {
         new MiniCssExtractPlugin({
             filename: `${ASSETS_PATH}/css/[name].[contenthash].css`,
             chunkFilename: `${ASSETS_PATH}/css/[name].[contenthash].css`   // chunk css file
+        }),
+        new StyleLintPlugin({
+            context: 'src',
+            fix: true,
+            cache: true
         }),
         new HtmlWebpackPlugin({                             // 主页面入口index.html
             title: project.title,

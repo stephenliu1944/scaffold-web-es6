@@ -1,4 +1,4 @@
-import http, { prepare } from '@beancommons/http';
+import http, { prepare } from 'axios-enhance';
 import { HttpMethod } from 'constants/common';
 /**
  * Demo

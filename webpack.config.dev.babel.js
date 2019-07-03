@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 import { define } from '@beancommons/define';
-import { proxy } from '@beancommons/proxy';
+import { settings } from 'http-proxy-config';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import baseConfig from './webpack.config.base';
 
@@ -22,7 +22,7 @@ export default webpackMerge(baseConfig, {
         historyApiFallback: true,   // browserHistory路由
         contentBase: path.resolve(__dirname, 'build'),
         proxy: {
-            ...proxy(proxies)
+            ...settings(proxies)
         }
     },
     module: {
