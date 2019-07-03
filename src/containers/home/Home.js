@@ -1,11 +1,13 @@
 import catPNG from 'images/cat.png';
 import styles from './home.scss';
-import SubComponent from './components/subComponent/SubComponent';
+import CommonComponent from 'commonComponents/component1/Component1';
+import SubComponent from './components/component1/Component1';
 import { getIPInfo, uploadURL } from 'services/demo';
 
 export default class Home {
     
     constructor() {
+        this.common = new CommonComponent();
         this.sub = new SubComponent();
         /** 
          * HTTP Demo 
@@ -30,6 +32,7 @@ export default class Home {
                 <h1>Home</h1>
                 <h1>我是容器组件</h1>
                 <img src=${catPNG} /> 
+                ${this.common.render()}
                 ${this.sub.render()}
             </div>
         `);

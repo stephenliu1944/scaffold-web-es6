@@ -28,7 +28,7 @@ module.exports = {
         '^images(.*)$': '<rootDir>/src/images$1',
         '^constants(.*)$': '<rootDir>/src/constants$1',
         '^services(.*)$': '<rootDir>/src/services$1',
-        '^components(.*)$': '<rootDir>/src/components$1',
+        '^commonComponents(.*)$': '<rootDir>/src/commonComponents$1',
         '^containers(.*)$': '<rootDir>/src/containers$1',
         '\\.(css|less|scss)$': 'identity-obj-proxy'
     },

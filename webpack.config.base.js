@@ -26,23 +26,23 @@ export default {
             images: path.resolve(__dirname, 'src/images/'),
             constants: path.resolve(__dirname, 'src/constants/'),
             services: path.resolve(__dirname, 'src/services/'),
-            commons: path.resolve(__dirname, 'src/commons/'),
+            commonComponents: path.resolve(__dirname, 'src/commonComponents/'),
             containers: path.resolve(__dirname, 'src/containers/'),
             config: path.resolve(__dirname, 'src/config/')
         }
     },
     optimization: {
-        // splitChunks: {
-        //     minSize: 10,
-        //     minChunks: 1,
-        //     cacheGroups: {
-        //         vendors: {
-        //             test: /[\\/]node_modules[\\/]/,
-        //             name: 'vendors',
-        //             chunks: 'all'
-        //         }
-        //     }
-        // },
+        splitChunks: {
+            minSize: 10,
+            minChunks: 1,
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
+        },
         noEmitOnErrors: true
     },
     module: {
@@ -132,7 +132,7 @@ export default {
             title: project.title,
             faviconPath: ASSETS_PATH,
             filename: ROOT_PATH + 'index.html',
-            template: './src/template.html',
+            template: './src/template.html'
         }),
         new CaseSensitivePathsPlugin()                      // 文件大小写检测
     ]
