@@ -18,6 +18,7 @@
     "mock": "node mock/server.js",
     "start:mock": "concurrently \"cross-env npm start\" \"npm run mock\"",
     "lint:js": "eslint -c .eslintrc.prod.json --fix",
+    "lint:css": "stylelint --cache --fix",
     "test": "jest",
     "package": "npm run build:prod && gulp zip",
     "deploy:dev": "npm run package && gulp deploy-dev",
@@ -31,14 +32,16 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "npm run lint:js",
-      "git add"
-    ],
-    "src/**/*.{css,scss}": [
-      "npm run lint:css",
-      "git add"
-    ],
+    "linters": {
+      "src/**/*.js": [
+        "npm run lint:js",
+        "git add"
+      ],
+      "src/**/*.{css,scss}": [
+        "npm run lint:css",
+        "git add"
+      ]
+    },
     "ignore": []
   },
   "dependencies": {
