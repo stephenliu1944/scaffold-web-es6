@@ -40,9 +40,9 @@
       "src/**/*.{css,scss}": [
         "npm run lint:css",
         "git add"
-      ]
-    },
-    "ignore": []
+      ],
+      "ignore": []
+    }
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
