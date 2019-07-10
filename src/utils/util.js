@@ -7,6 +7,10 @@ function _getClass(object) {
     return Object.prototype.toString.call(object).match(/^\[object\s(.*)\]$/)[1];
 }
 
+export function trim(str) {
+    return str.replace(/^\s*/, '').replace(/\s*$/, '');
+}
+
 export function isArray(obj) {
     return _getClass(obj).toLowerCase() === 'array';
 }
@@ -28,14 +32,27 @@ export function isNumber(obj) {
 }
 
 export function isFormData(obj) {
-    try {
-        if (obj instanceof FormData) {
-            return true;
-        }
-    } catch (e) {
-        return false;
-    }
-    return false;
+    return (typeof FormData !== 'undefined') && (obj instanceof FormData);
+}
+
+export function isFile(obj) {
+    return _getClass(obj).toLowerCase() === 'file';
+}
+
+export function isBlob(obj) {
+    return _getClass(obj).toLowerCase() === 'blob';
+}
+
+export function isFunction(obj) {
+    return _getClass(obj).toLowerCase() === 'function';
+}
+
+export function isStream(obj) {
+    return isObject(obj) && isFunction(obj.pipe);
+}
+
+export function isURLSearchParams(obj) {
+    return typeof URLSearchParams !== 'undefined' && obj instanceof URLSearchParams;
 }
 
 export function isIE() {
@@ -150,6 +167,56 @@ export function throttle(func, wait, options) {
         return result;
     };
 }
+
+/**
+ * @desc 函数防抖，让某个函数在上一次执行后，满足等待某个时间内不再触发此函数后再执行，而在这个等待时间内再次触发此函数，等待时间会重新计算。
+ * 解决频繁发生的事件，比如
+ * 1.window 的 resize、scroll
+ * 2.mousedown、mousemove
+ * 3.keyup、keydown
+ * 试用场景：输入框搜索，滚动懒加载图片
+ * @param {fun} 需要进行函数防抖的函数
+ * @param {wait} 参数wait则是需要等待的时间，单位为毫秒
+ * @param {immediate} immediate参数如果为true，则debounce函数会在调用时立刻执行一次function，而不需要等到wait这个时间后，
+ */
+export function debounce(func, wait, immediate) {
+    var timeout, result;
+    var debounced = function() {
+        var context = this;
+        var args = arguments;
+        
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+
+        if (immediate) {
+            // 如果已经执行过，不再执行
+            var callNow = !timeout;
+
+            if (callNow) {
+                result = func.apply(context, args);
+            }
+
+            timeout = setTimeout(function() {
+                // timeout 为 null 的时候 callNow 才为 true.
+                timeout = null;
+            }, wait);
+        } else {
+            timeout = setTimeout(function() {
+                func.apply(context, args);
+            }, wait);
+        }
+        return result;
+    };
+
+    debounced.cancel = function() {
+        clearTimeout(timeout);
+        timeout = null;
+    };
+
+    return debounced;
+}
+
 /**
  * @desc 字符串切分为数组
  * @param {String} str 将要切分的字符串
