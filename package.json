@@ -1,7 +1,7 @@
 {
   "name": "scaffolding-project-es6",
   "version": "0.1.0",
-  "description": "用于开发基于ES6的单页应用脚手架",
+  "description": "Use for development Web application.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -75,7 +75,7 @@
     "eslint-loader": "^2.1.0",
     "file-loader": "^2.0.0",
     "gulp": "^4.0.0",
-    "gulp-sftp": "^0.1.5",
+    "gulp-sftp-up4": "^0.1.8",
     "gulp-zip": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-config": "^0.1.1",
@@ -119,19 +119,19 @@
   },
   "deploy": {
     "dev": {
-      "host": "xxx.xxx.xxx.xxx",
+      "host": "",
       "port": 22,
-      "user": "xxx",
-      "pass": "xxx",
+      "user": "",
+      "pass": "",
       "zip": false,
       "timeout": 60000,
       "remotePath": "/usr/local/static"
     },
     "test": {
-      "host": "xxx.xxx.xxx.xxx",
+      "host": "",
       "port": 22,
-      "user": "xxx",
-      "pass": "xxx",
+      "user": "",
+      "pass": "",
       "zip": true,
       "timeout": 60000,
       "remotePath": "/usr/local/static"
