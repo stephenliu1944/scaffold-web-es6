@@ -2,7 +2,7 @@
 import gulp from 'gulp';
 import del from 'del';
 import zip from 'gulp-zip';
-import sftp from 'gulp-sftp';
+import sftp from 'gulp-sftp-up4';
 import { project, deploy } from './package.json';
 import { execSync } from 'child_process';
 
@@ -18,23 +18,23 @@ gulp.task('clean', () => {
 // 文件打包
 gulp.task('dist', gulp.series('clean', () => {
     return gulp.src(`${BUILD_PATH}/**`)
-               .pipe(gulp.dest(`${DIST_PATH}/${packageName}/`));
+        .pipe(gulp.dest(`${DIST_PATH}/${packageName}/`));
 }));
 // 将静态资源压缩为zip格式
 gulp.task('zip', gulp.series('dist', () => {
-    return gulp.src(`${DIST_PATH}/**`, {base: `${DIST_PATH}/`})
-               .pipe(zip(`${packageName}.zip`))
-               .pipe(gulp.dest(DIST_PATH));
+    return gulp.src(`${DIST_PATH}/**`, { base: `${DIST_PATH}/` })
+        .pipe(zip(`${packageName}.zip`))
+        .pipe(gulp.dest(DIST_PATH));
 }));
 // 将静态资源发布到 dev 服务器
 gulp.task('deploy-dev', gulp.series('zip', () => {
     return gulp.src(dev.zip ? [`${DIST_PATH}/*.zip`] : [`${DIST_PATH}/**`, `!${DIST_PATH}/*.zip`])
-               .pipe(sftp(dev));
+        .pipe(sftp(dev));
 }));
 // 将静态资源发布到 test 服务器
 gulp.task('deploy-test', gulp.series('zip', () => {
     return gulp.src(test.zip ? [`${DIST_PATH}/*.zip`] : [`${DIST_PATH}/**`, `!${DIST_PATH}/*.zip`])
-               .pipe(sftp(test));
+        .pipe(sftp(test));
 }));
 // 同时部署到开发和测试服务器
 gulp.task('deploy-all', gulp.parallel('deploy-dev', 'deploy-test'));
