@@ -1,6 +1,6 @@
 import 'images/favicon.ico';
 import 'styles/main.scss';
-import http from 'axios-enhance';
+import http from 'axios-enhanced';
 import Home from 'containers/home/Home';
 
 // set global http settings.
