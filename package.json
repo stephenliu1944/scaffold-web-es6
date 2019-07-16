@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "axios-enhance": "^0.2.9"
+    "axios-enhanced": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
