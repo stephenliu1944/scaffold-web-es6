@@ -1,0 +1,4 @@
+{
+    "/json/regions": "/regions",
+    "/json/:query": "/regions/:query"
+}

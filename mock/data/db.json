@@ -1,114 +1,51 @@
 {
-  "users": [{
-      "name": "bjstdmngbdr01",
-      "os": "windows",
-      "status": "idle",
-      "type": "physical",
-      "ip": "192.168.1.102",
-      "location": "/var/lib/cruise-agent",
-      "resources": [
-        "Firefox",
-        "Safari",
-        "Ubuntu",
-        "Chrome"
-      ],
-      "id": 1
-    },
-    {
-      "name": "bjstdmngbdr08",
-      "os": "windows",
-      "status": "building",
-      "type": "virtual",
-      "ip": "192.168.1.80",
-      "location": "/var/lib/cruise-agent",
-      "resources": [
-        "Firefox",
-        "Safari",
-        "Ubuntu",
-        "Chrome"
-      ],
-      "id": 2
-    },
-    {
-      "name": "bjstdmngbdr10",
-      "os": "ubuntu",
-      "status": "building",
-      "type": "physical",
-      "ip": "192.168.1.117",
-      "location": "/var/lib/cruise-agent",
-      "resources": [
-        "Firefox",
-        "Safari"
-      ],
-      "id": 3
-    },
-    {
-      "name": "bjstdmngbdr11",
-      "os": "debian",
-      "status": "building",
-      "type": "virtual",
-      "ip": "192.168.1.102",
-      "location": "/var/lib/cruise-agent",
-      "resources": [
-        "Firefox",
-        "Safari",
-        "Ubuntu",
-        "Chrome"
-      ],
-      "id": 4
-    },
-    {
-      "name": "bjstdmngbdr15",
-      "os": "suse",
-      "status": "idle",
-      "type": "physical",
-      "ip": "192.168.1.110",
-      "location": "/var/lib/cruise-agent",
-      "resources": [],
-      "id": 5
-    },
-    {
-      "name": "bjstdmngbdr02",
-      "os": "centos",
-      "status": "idle",
-      "type": "virtual",
-      "ip": "192.168.1.103",
-      "location": "/var/lib/cruise-agent",
-      "resources": [
-        "Firefox",
-        "Safari",
-        "Ubuntu",
-        "Chrome"
-      ],
-      "id": 6
-    },
-    {
-      "name": "bjstdmngbdr04",
-      "os": "suse",
-      "status": "idle",
-      "type": "physical",
-      "ip": "192.168.1.113",
-      "location": "/var/lib/cruise-agent",
-      "resources": [
-        "Firefox",
-        "Safari",
-        "Ubuntu",
-        "Chrome"
-      ],
-      "id": 7
-    },
-    {
-      "name": "bjstdmngbdr22",
-      "os": "centos",
-      "status": "idle",
-      "type": "virtual",
-      "ip": "192.168.1.111",
-      "location": "/var/lib/cruise-agent",
-      "resources": [
-        "Ubuntu",
-        "Chrome"
-      ],
-      "id": 8
-    }
-  ]
+	"regions": [{
+		"id": "210.75.225.254",
+		"query": "210.75.225.254",
+		"as": "AS7497 Computer Network Information Center",
+		"city": "Beijing",
+		"country": "China",
+		"countryCode": "CN",
+		"isp": "Computer Network Information Center",
+		"lat": 39.9042,
+		"lon": 116.407,
+		"org": "Cstnet",
+		"region": "BJ",
+		"regionName": "Beijing(Mock)",
+		"status": "success",
+		"timezone": "Asia/Shanghai",
+		"zip": ""
+	}, {
+		"id": "210.75.225.253",
+		"query": "210.75.225.253",
+		"as": "AS7497 Computer Network Information Center",
+		"city": "Chengdu",
+		"country": "China",
+		"countryCode": "CN",
+		"isp": "Computer Network Information Center",
+		"lat": 45.534,
+		"lon": 54.789,
+		"org": "Cstnet",
+		"region": "CD",
+		"regionName": "Chengdu(Mock)",
+		"status": "success",
+		"timezone": "Asia/Shanghai",
+		"zip": ""
+	}, {
+		"id": "210.75.225.252",
+		"query": "210.75.225.252",
+		"as": "AS7497 Computer Network Information Center",
+		"city": "Shanghai",
+		"country": "China",
+		"countryCode": "CN",
+		"isp": "Computer Network Information Center",
+		"lat": 75.1211,
+		"lon": 21.845,
+		"org": "Cstnet",
+		"region": "SH",
+		"regionName": "Shanghai(Mock)",
+		"status": "success",
+		"timezone": "Asia/Shanghai",
+		"zip": ""
+	}]
 }

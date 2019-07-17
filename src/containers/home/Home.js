@@ -27,7 +27,7 @@ export default class Home {
     }
 
     render() {
-        return (`
+        return `
             <div class=${styles.home}>
                 <h1>Home</h1>
                 <h1>我是容器组件</h1>
@@ -35,6 +35,6 @@ export default class Home {
                 ${this.common.render()}
                 ${this.sub.render()}
             </div>
-        `);
+        `;
     }
 }
