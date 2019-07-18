@@ -1,15 +1,95 @@
-# Scaffolding Project ES6 项目
+# ES6 Web Application Scaffolding
 
 ### 项目介绍
-用于开发单页应用的脚手架, 基于ES6, 可轻松扩展为 React 项目.
+用于开发单页应用的脚手架, 基于ES6, 可扩展为 React, Vue 项目.
+
+### 目录结构
+```
+bin                                         // 可执行命令目录.
+|-build-dev.bat                             // 将src目录中的源码通过 webpack.config.dev.babel.js 编译到build目录.
+|-build-prod.bat                            // 将src目录中的源码通过 webpack.config.prod.babel.js 编译到build目录.
+|-deploy-all.bat                            // 将代码发布到开发和测试服务器, 需在package.json中配置deploy相关信息.
+|-deploy-dev.bat                            // 将代码发布到开发服务器, 需在package.json中配置deploy.dev相关信息.
+|-deploy-test.bat                           // 将代码发布到测试服务器, 需在package.json中配置deploy.test相关信息.
+|-package.bat                               // 将src目录中的源码通过生产环境配置打包到dist目录并生成zip文件供发版使用.
+|-startup.bat                               // 启动开发环境web服务(window)
+|-startup.sh                                // 启动开发环境web服务(linux)
+|-mock.bat                                  // 启动开发环境mock服务(window)
+|-mock.sh                                   // 启动开发环境mock服务(linux)
+|-startup-mock.bat                          // 同时启动开发环境web和mock服务(window)
+|-startup-mock.sh                           // 同时启动开发环境web和mock服务(linux)
+|-test.bat                                  // 执行jest单元测试(window)
+|-test.sh                                   // 执行jest单元测试(linux)
+build                                       // 代码编译后生成的临时目录
+dist                                        // 代码打包后生成的临时目录
+mock                                        // mock服务目录
+|-data                                      // mock数据存放目录
+|-routes.json                               // mock请求路径映射文件
+|-server.js                                 // mock服务配置
+src                                         // 项目源码目录
+|-commonComponents                          // 公共功能组件目录(大部分功能组件是无状态的, 主要的状态管理交由容器组件)
+    |-component1
+        |-Component1.js                    // 组件js文件, 文件首字母大写, 驼峰标识, 代码采用ES6风格编码.
+        |-component1.scss                   // 组件引用的scss文件, 文件首字母小写, 驼峰标识.
+    ...
+|-config                                    // 生产环境配置文件目录
+    |-settings.js                           // 项目生产环境配置文件
+|-constants                                 // 常量目录
+    |-common.js                             // 存放一些通用常量
+    |-enum.js                               // 存放一些枚举常量
+|-containers                                // 容器组件目录(一个容器组件就是一个页面, 它将各种功能组件组合在一起, 其主要负责组装功能组件, 接口调用以及整个页面的状态管理).
+    |-home                                  // 首页容器组件
+        |-Home.js                           // 组件js文件, 文件首字母大写, 驼峰标识, 代码采用ES6风格编码.
+        |-home.scss                         // 组件引用的scss文件, 文件首字母小写, 驼峰标识.
+        |-components                        // 容器组件私有的功能组件(大部分功能组件是无状态的, 主要的状态管理和接口请求交由容器组件)
+            |-component1
+                |-Component1.js
+                |-component1.scss
+            ...
+    ...
+|-styles                                    // 通用样式目录
+    |-main.scss                             // 全局css文件
+    |-fonts.scss                            // 字体样式和字体图标css文件
+|-images                                    // 公共图片存放目录
+|-services                                  // 后台接口服务目录, 所有服务端数据请求都封装在这里, 并统一调用HttpRequest对象请求后台接口, 方便数据封装, 接口重用.
+    |-demo.js                               // agent接口请求文件, 对应请求URL的模块名, 如: /user/add, 则文件应该命名为user.js
+|-utils                                     // 常用工具
+    |-util.js                               // 一些常用工具方法.
+|-index.js                                  // 入口js文件.
+|-template.html                             // 页面模板文件.
+test                                        // 测试代码目录, 目录结构同src
+|-commons
+|-containers
+    ...
+.eslintignore                               // eslint 忽略校验配置文件.
+.eslintrc.json                              // eslint 开发环境代码校验配置文件.
+.eslintrc.prod.json                         // eslint 生产环境代码校验配置文件, 比开发环境更加严格, 发版和提交代码时会自动执行此配置校验代码.
+.gitignore                                  // git 忽略提交配置文件.
+.stylelintignore                            // stylelint 忽略校验配置文件.
+babel.config.js                             // babel 配置文件.
+enzyme.config.js                            // enzyme 配置文件.
+fileTransformer.js                          // jest 文件转换配置文件.
+gulpfile.babel.js                           // 项目打包, 发布脚本.
+jest.config.js                              // jest 配置文件.
+package.json                                // npm 配置文件.
+postcss.config.js                           // postcss 插件配置文件.
+stylelint.config.js                         // stylelint 校验规则配置文件
+webpack.config.base.js                      // webpack 开发, 生产环境公用部分.
+webpack.config.dev.babel.js                 // webpack 开发环境配置文件.
+webpack.config.prod.babel.js                // webpack 生产环境配置文件.
+README.md                                   // 脚手架说明文档.
+```
 
 ### 项目依赖
 ```
-node:    v8.x.x
-webpack: v4.x.x
-eslint:  v5.x.x
-babel:   v7.x.x
-gulp:    v4.x.x
+webpack:        v4
+eslint:         v5
+babel:          v7
+gulp:           v4
+jest            v24
+enzyme          v3
+eslint:         v5
+stylelint       v10
 ```
 
 ### 安装
@@ -24,113 +104,33 @@ npm install
 npm install -g webpack@4.19.0 webpack-dev-server@3.1.8 eslint@5.6.0 @babel/core@7.0.1 gulp@4.0.0
 ```
 
-### React扩展
-1. 安装 babel 插件
-```
-npm i -D @babel/preset-react
-npm i -S react react-dom
-```
-2. 修改 babel.config.js 配置, 解开2处 '@babel/preset-react' 注释即可.
-
-### 快速启动
-进入bin目录:  
-- window 下执行 startup-mock.bat
-- linux 下执行 startup-mock.sh
-
-浏览器输入: http://localhost:8080  
-
-### 服务配置
-web服务端口默认为8080.  
-mock服务端口默认为3001.  
-proxy配置HTTP请求代理到的服务器.
-如遇端口冲突, 可以在package.json > devEnvironments中修改.
-
-### 目录结构
-```
-bin                                         // 可执行命令目录.
-|-build-dev.bat                             // 将src目录中的源码通过 webpack.config.dev.babel.js 编译到build目录.
-|-build-prod.bat                            // 将src目录中的源码通过 webpack.config.prod.babel.js 编译到build目录.
-|-deploy-all.bat                            // 将代码发布到开发和测试服务器, 需在package.json中配置deploy相关信息.
-|-deploy-dev.bat                            // 将代码发布到开发服务器, 需在package.json中配置deploy.dev相关信息.
-|-deploy-test.bat                           // 将代码发布到测试服务器, 需在package.json中配置deploy.test相关信息.
-|-package.bat                               // 将src目录中的源码通过生产环境配置打包到dist目录并生成zip文件供发版使用.
-|-lint.bat                                  // 执行eslint生产环境代码校验.
-|-startup.bat                               // 启动开发环境web服务(window)
-|-startup.sh                                // 启动开发环境web服务(linux)
-|-mock.bat                                  // 启动开发环境mock服务(window)
-|-mock.sh                                   // 启动开发环境mock服务(linux)
-|-startup-mock.bat                          // 同时启动开发环境web和mock服务(window)
-|-startup-mock.sh                           // 同时启动开发环境web和mock服务(linux)
-|-test.bat                                  // 执行jest单元测试(window)
-|-test.sh                                   // 执行jest单元测试(linux)
-build                                       // 代码编译后生成的临时目录
-dist                                        // 代码打包后生成的临时目录
-mock                                        // mock服务目录
-|-data                                      // mock数据存放目录
-|-server.js                                 // mock服务配置
-src                                         // 项目源码目录
-|-components                                // 功能组件目录
-    |-poppupBox                             // 新增resources弹窗组件
-        |-PoppupBox.js                      // 组件js文件, 文件首字母大写, 驼峰标识, 代码采用ES6风格编码.
-        |-poppupBox.css                     // 组件引用的css文件, 文件首字母小写, 驼峰标识.
-    |-searchResult                          // 搜索列表组件
-        |-SearchResult.js                   // 组件js文件, 文件首字母大写, 驼峰标识, 代码采用ES6风格编码.
-        |-searchResult.css                  // 组件引用的css文件, 文件首字母小写, 驼峰标识.
-    ...
-|-config                                    // 生产环境配置文件目录
-    |-settings.js                           // 项目生产环境配置文件
-|-constants                                 // 常量目录
-    |-common.js                             // 存放一些通用常量
-|-containers                                // 容器组件目录(容器组件就像一个页面, 将各种功能组件组合在一起形成).
-    |-home                                  // 首页容器组件
-        |-Home.js                           // 组件js文件, 文件首字母大写, 驼峰标识, 代码采用ES6风格编码.
-        |-home.css                          // 组件引用的css文件, 文件首字母小写, 驼峰标识.
-    ...
-|-styles                                    // 通用样式目录
-    |-main.css                              // 全局css文件
-    |-fonts.css                             // 字体样式和字体图标css文件
-|-images                                    // 公共图片存放目录
-|-services                                  // 后台接口服务目录, 所有服务端数据请求都封装在这里, 并统一调用HttpRequest对象请求后台接口, 方便数据封装, 接口重用.
-    |-agent.js                              // agent接口请求文件, 对应请求URL的模块名, 如: /user/add, 则文件应该命名为user.js
-|-utils                                     // 常用工具
-    |-httpRequest.js                        // 封装了后台数据请求, 统一从此对象请求后台数据, 返回一个Promise. 该对象应在services目录的文件中使用, 不应直接在页面上调用.
-    |-util.js                               // 一些常用工具方法.
-|-index.js                                  // 入口js文件.
-|-template.html                             // 页面模板文件.
-test                                        // 测试代码目录, 目录结构同src
-|-components
-    ...
-.eslintignore                               // eslint忽略校验配置文件.
-.eslintrc.json                              // eslint开发环境代码校验配置文件.
-.eslintrc.prod.json                         // eslint生产环境代码校验配置文件, 比开发环境更加严格, 发版和提交代码时会自动执行此配置校验代码.
-.gitignore                                  // git忽略提交配置文件.
-package.json                                // npm配置文件.
-README.md                                   // 项目开发文档.
-babel.config.js                             // babel配置文件.
-postcss.config.js                           // postcss插件配置文件.
-gulpfile.babel.js                           // 项目打包, 发布脚本.
-webpack.config.base.js                      // webpack开发, 生产环境公用部分.
-webpack.config.dev.babel.js                 // webpack开发环境配置文件.
-webpack.config.prod.babel.js                // webpack生产环境配置文件.
-```
-
 ### 启动服务
 1. web服务  
-运行 /bin/startup.bat  
+运行 /bin/startup.bat (linux 运行 startup.sh)  
 浏览器访问 localhost:8080 即可,  
-可在 package.json > devEnvironments > local 配置web服务的端口.
-2. web服务 + mock服务  
-运行 /bin/startup-mock.bat (无需再运行 /bin/server.bat).  
-浏览器访问 localhost:8080 即可,  
-可在 package.json > devEnvironments > mock 配置mock服务的端口.
+可在 package.json > devEnvironments > servers > local 配置web服务端口, 默认8080.
+2. mock服务
+运行 /bin/mock.bat (linux 运行 mock.sh)  
+浏览器访问 localhost:3000 即可,  
+可在 package.json > devEnvironments > servers > mock 配置mock服务端口, 默认3000.
+3. web服务 + mock服务  
+运行 /bin/startup-mock.bat (linux 运行 startup-mock.sh)  
+
+### 代码检测
+1. webpack 编译代码时, 会自动检测 js, css, scss 类型文件的代码规范, 并自动修复(仅限于支持自动修复的代码).
+2. git commit 时, 会再次执行代码检测, 并自动修复(仅限于支持自动修复的代码)后, 后再提交.
+
+### 单元测试
+对 /test 目录下的所有文件进行单元测试.
+运行 /bin/test.bat (linux 运行 test.sh)  
 
 ### 项目打包
 1. 在 package.json > project 中配置项目相关信息, 详见下方说明.
-2. 运行 /bin/package.bat或.sh, 会在 /dist 目录生成打包后的项目文件夹和压缩后的zip文件, 供发版使用.
+2. 运行 /bin/package.bat (linux 运行 package.sh), 会在 /dist 目录生成打包后的项目文件夹和压缩后的zip文件, 供发版使用.
 ```
 "project": {
-    "title": "My App",              // index.html的默认title
-    "baseURL": "root",             // 项目的根路径, 如果配置改属性, 本地调试时需加上此根路径(localhost:8080/root), 用于在多个单页系统中根据根路径来映射项目静态资源, 默认为空.
+    "title": "My App",              // index.html 默认 title 信息.
+    "baseURL": "root",              // 项目的根路径, 如果配置该属性, 本地调试时需加上此根路径才能访问(如: localhost:8080/root), 用于在同一域名下部署多个单页应用时通过路径来区分不同的子系统, 默认为空.
     "packageName": "www.myapp.com"  // dist目录打包生成出的项目包名.
 },
 ```
@@ -142,8 +142,8 @@ webpack.config.prod.babel.js                // webpack生产环境配置文件.
     "dev": {            // 发布到开发服务器
         "host":         // 主机IP
         "port":         // 端口
-        "user":         // 服务器登陆账号
-        "pass":         // 服务器登陆密码
+        "user":         // 服务器登陆账号(注意: 勿将账号暴露在公网!)
+        "pass":         // 服务器登陆密码(注意: 勿将密码暴露在公网!)
         "zip":          // 是否以 zip 包的形式发布, 如果为 true 则发布的是个 zip 包, false 发布的是文件夹
         "timeout":      // 服务器连接超时时间
         "remotePath":   // 发布到服务器上的位置
@@ -153,8 +153,8 @@ webpack.config.prod.babel.js                // webpack生产环境配置文件.
     }
 }
 ```
-2. 运行 /bin/deploy-dev.bat, 发布到 dev 服务器.   
-3. 运行 /bin/deploy-test.bat, 发布到 test 服务器.    
+2. 运行 /bin/deploy-dev.bat, 发布到 dev 服务器.
+3. 运行 /bin/deploy-test.bat, 发布到 test 服务器.
 4. 运行 /bin/deploy-all.bat, 同时发布到 dev 和 test 服务器.
 
 ### linux环境配置(RHEL, CentOS or Fedora)
