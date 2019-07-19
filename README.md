@@ -53,8 +53,9 @@ src                                         // 项目源码目录
 |-images                                    // 公共图片存放目录
 |-services                                  // 后台接口服务目录, 所有服务端数据请求都封装在这里, 并统一调用HttpRequest对象请求后台接口, 方便数据封装, 接口重用.
     |-demo.js                               // agent接口请求文件, 对应请求URL的模块名, 如: /user/add, 则文件应该命名为user.js
-|-utils                                     // 常用工具
-    |-util.js                               // 一些常用工具方法.
+|-utils                                     // 工具库
+    |-common.js                             // 一些常用工具方法.
+    |-dom.js                                // 操作dom的常用方法.
 |-index.js                                  // 入口js文件.
 |-template.html                             // 页面模板文件.
 test                                        // 测试代码目录, 目录结构同src

@@ -5,7 +5,7 @@ import Home from 'containers/home/Home';
 
 // set global http settings.
 http.settings({
-    proxyPath: __DEV__,
+    proxyPath: __DEV__ && '/proxy',     
     isDev: __DEV__
 });
 
