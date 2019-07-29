@@ -6,7 +6,7 @@ import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import { project } from './package.json';
 
-const ROOT_PATH = (project.baseURL && `${project.baseURL}/`) || '';
+const ROOT_PATH = (project.path && `${project.path}/`) || '';
 const ASSETS_PATH = ROOT_PATH + 'assets';
 
 export default {

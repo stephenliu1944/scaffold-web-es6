@@ -131,7 +131,7 @@ npm install -g webpack@4.19.0 webpack-dev-server@3.1.8 eslint@5.6.0 @babel/core@
 ```
 "project": {
     "title": "My App",              // index.html 默认 title 信息.
-    "baseURL": "root",              // 项目的根路径, 如果配置该属性, 本地调试时需加上此根路径才能访问(如: localhost:8080/root), 用于在同一域名下部署多个单页应用时通过路径来区分不同的子系统, 默认为空.
+    "path": "myapp",                // 项目访问和打包的根路径, 如果配置该属性, 本地调试时需加上此根路径才能访问(如: localhost:8080/myapp), 用于在同一域名下部署多个单页应用时通过路径来区分不同的子系统, 默认为空.
     "packageName": "www.myapp.com"  // dist目录打包生成出的项目包名.
 },
 ```
