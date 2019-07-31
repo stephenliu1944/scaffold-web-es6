@@ -121,6 +121,18 @@ npm install -g webpack@4.19.0 webpack-dev-server@3.1.8 eslint@5.6.0 @babel/core@
 1. webpack 编译代码时, 会自动检测 js, css, scss 类型文件的代码规范, 并自动修复(仅限于支持自动修复的代码).
 2. git commit 时, 会再次执行代码检测, 并自动修复(仅限于支持自动修复的代码)后, 后再提交.
 
+#### 局部代码忽略 stylelint 校验
+主要用于覆盖第三方UI库样式的情况
+```
+/* stylelint-disable */
+:global {
+    .ant-select-selection {
+        ...
+    }
+}
+/* stylelint-enable */
+```
+
 ### 单元测试
 对 /test 目录下的所有文件进行单元测试.
 运行 /bin/test.bat (linux 运行 test.sh)  
