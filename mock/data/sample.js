@@ -1,5 +1,7 @@
 module.exports = [{
-    url: '/user/123',
+    request: {
+        url: '/user/123'
+    },
     response: {
         body: {
             id: 123,
@@ -8,7 +10,9 @@ module.exports = [{
         }
     }
 }, {
-    url: '/user/:id',
+    request: {
+        url: '/user/:id'
+    },
     response: {
         body: {
             id: 123,
@@ -17,7 +21,9 @@ module.exports = [{
         }
     }
 }, {
-    url: '/user/*.do',
+    request: {
+        url: '/user/*.do'
+    },
     response: {
         body: {
             id: 123,
@@ -26,7 +32,9 @@ module.exports = [{
         }
     }
 }, {
-    url: '/user/**/list',
+    request: {
+        url: '/user/**/list'
+    },
     response: {
         body: [{
             id: 123, 
