@@ -1,4 +1,4 @@
-import http, { prepare } from 'axios-enhanced';
+import http, { prepare } from '@middlend/http';
 import { HttpMethod } from 'constants/common';
 /**
  * Demo

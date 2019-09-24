@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import { define } from '@beancommons/define';
+import define from '@middlend/define';
 import baseConfig from './webpack.config.base';
 import pkg from './package.json';
 
@@ -36,9 +36,8 @@ export default webpackMerge(baseConfig, {
     plugins: [
         // 配置全局变量
         new webpack.DefinePlugin({
-            __DEV__: false,
-            'process.env.NODE_ENV': JSON.stringify('production'),
-            ...define(globals)
+            ...define(globals, false),
+            'process.env.NODE_ENV': JSON.stringify('production')
         })
     ]
 });
